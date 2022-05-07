@@ -1,0 +1,684 @@
+<html>
+
+<head>
+    <title></title>
+    <!-- CDN for Bootstrap -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script> -->
+
+<script src="js\popper.min.js"></script>
+<script src="js\bootstrap.min.js"></script>
+<script src="js\bootstrap.bundle.min.js"> </script>
+<script src="js\home.js"> </script>
+
+<link rel="stylesheet" type="text/css" href="css\bootstrap.min.css"> 
+<link rel="stylesheet" type="text/css" href="css\home.css" />
+
+    <!-- CDN for Fontawesome    -->
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/duotone.css"
+        integrity="sha384-R3QzTxyukP03CMqKFe0ssp5wUvBPEyy9ZspCB+Y01fEjhMwcXixTyeot+S40+AjZ" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css"
+        integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" crossorigin="anonymous" />
+      
+    
+</head>
+
+<body onload="init()">
+    <div class="container">
+        <br/>
+         <p>Customer</p>
+        <br/>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary me-md-2" type="button" data-bs-toggle="modal"
+                    data-bs-target="#addcustomer">+
+                    Add</button>
+               </button>
+           </div>
+        <br />
+
+        <table class="table table-bordered xyz" style="text-align: center;" id= "myTable">
+            <thead style="background-color: #a8aaad;">
+                <th colspan="4" style="text-align: left;">Customer</th>
+                <th><input type="text" /></th>
+                <th><button class="btn btn-primary me-md-2">Search</button></th>
+            </thead>
+            <tr>
+                <th>Sr.no</th>
+                <th>Customer Id</th>
+                <th>Customer Name</th>
+                <th>Mobile No.</th>
+                <th>Email-id</th>
+                <th>Action</th>
+            </tr>
+            
+        </table>
+
+        <!-- Add Customer Form -->
+        <!-- Modal -->
+        
+        <div class="modal fade" id="addcustomer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add Customer</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="needs-validation " novalidate>
+                        <div class="row g-2">
+                            <div class="col">
+                                <label for="name" class="col-form-label col-form-label-sm">Name *</label>
+                                <input type="text" class="form-control" aria-label="First name" id="name" required>
+                            </div>
+                            <div class="col">
+                                <label for="mobileno"
+                                    class="col-form-label col-form-label-sm">Mobile No *</label>
+                                <input type="number" class="form-control" aria-label="first name" id="mobileno" required>
+                            </div>
+                        </div>
+                        <div class="row g-2">
+                            <div class="col">
+                                <label for="email"
+                                    class="col-form-label col-form-label-sm">Email id</label>
+                                <input type="email" class="form-control" aria-label="First name" id="email"/>
+                            </div>
+                            <div class="col">
+                                <label for="inputEmail3"
+                                    class="col-form-label col-form-label-sm">Date of birth</label>
+                                <input type="date" class="form-control" aria-label="first name" id="dob" />
+                            </div>
+                        </div>
+
+                        <div class="row g-2">
+                            <div class="col">
+                                <label for="inputEmail3"
+                                    class="col-sm-2 col-form-label col-form-label-sm">Gender</label>
+                                <br />
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio1" value="option1" />
+                                    <label class="form-check-label" for="inlineRadio1">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio2" value="option2" />
+                                    <label class="form-check-label" for="inlineRadio2">Female</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio3" value="option3" />
+                                    <label class="form-check-label" for="inlineRadio3">Other
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="inputEmail3"
+                                    class="col-form-label col-form-label-sm">Address1 *</label>
+                                <input type="text" class="form-control" aria-label="Last name" required id="address1">
+                            </div>
+                        </div>
+
+                        <div class="row g-2">
+                            <div class="col">
+                                <label for="inputEmail3"
+                                    class=" col-form-label col-form-label-sm">Address2</label>
+                                <input type="email" class="form-control" aria-label="First name" id="address2" />
+                            </div>
+                            <div class="col">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label col-form-label-sm">City</label>
+
+                                <select class="form-select" aria-label="Default select example" id="city">
+                                    <option selected>Select City</option>
+                                    <option value="1">Pune</option>
+                                    <option value="2">Mumbai</option>
+                                    <option value="3">Goa</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row g-2">
+                            <div class="col">
+                                <label for="inputEmail3"
+                                    class="col-form-label col-form-label-sm">Country</label>
+                                <select class="form-select" aria-label="Default select example" id="country">
+                                    <option selected>Select Country</option>
+                                    <option value="India">India</option>
+                                    <option value="Landom">Landon</option>
+                                    <option value="US">US</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="formFileSm" class="form-label">Upload Photo</label>
+                                    <input class="form-control form-control-sm" id="formFileSm" type="file" id="photo" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                            cancel
+                        </button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="mySubmit()">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--Edit Modal -->
+        <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Customer</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row g-2">
+                            <div class="col">
+                                <label for="inputEmail3" class="col-form-label col-form-label-sm">Name *</label>
+                                <input type="text" class="form-control" aria-label="First name" required id="editcustomername" />
+                            </div>
+                            <div class="col">
+                                <label for="inputEmail3"
+                                    class=" col-form-label col-form-label-sm">Mobile No *</label>
+                                <input type="number" class="form-control" aria-label="Last name" required id="editmobileno"/>
+                            </div>
+                        </div>
+                        <div class="row g-2">
+                            <div class="col">
+                                <label for="inputEmail3"
+                                    class=" col-form-label col-form-label-sm">Email id</label>
+                                <input type="email" class="form-control" aria-label="First name" id="emailid"/>
+                            </div>
+                            <div class="col">
+                                <label for="inputEmail3"
+                                    class="col-form-label col-form-label-sm">Date Of Birth</label>
+                                <input type="date" class="form-control" aria-label="Last name" id="dateofbirth"/>
+                            </div>
+                        </div>
+
+                        <div class="row g-2">
+                            <div class="col">
+                                <label for="inputEmail3"
+                                    class="col-sm-2 col-form-label col-form-label-sm">Gender</label>
+                                <br />
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio1" value="option1" />
+                                    <label class="form-check-label" for="inlineRadio1">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio2" value="option2" />
+                                    <label class="form-check-label" for="inlineRadio2">Female</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio3" value="option3" />
+                                    <label class="form-check-label" for="inlineRadio3">Other
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="inputEmail3"
+                                    class="col-form-label col-form-label-sm">Address1 *</label>
+                                <input type="text" class="form-control" aria-label="Last name" id="editaddress1" />
+                            </div>
+                        </div>
+
+                        <div class="row g-2">
+                            <div class="col">
+                                <label for="inputEmail3"
+                                    class="col-form-label col-form-label-sm">Address2</label>
+                                <input type="email" class="form-control" aria-label="First name" id="editaddress2"/>
+                            </div>
+                            <div class="col">
+                                <label for="inputEmail3" class="col-form-label col-form-label-sm">City</label>
+
+                                <select class="form-select" aria-label="Default select example" id="editcity">
+                                    <option selected>Select City</option>
+                                    <option value="Pune">Pune</option>
+                                    <option value="Mumbai">Mumbai</option>
+                                    <option value="Goa">Goa</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row g-2">
+                            <div class="col">
+                                <label for="inputEmail3"
+                                    class="col-form-label col-form-label-sm">Country</label>
+                                <select class="form-select" aria-label="Default select example" id="country">
+                                    <option selected>Select Country</option>
+                                    <option value="India">India</option>
+                                    <option value="Landon">Landon</option>
+                                    <option value="US">US</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                            cancel
+                        </button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="updateCustomer()" >
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+
+        <!-- Subscription Table -->
+        <div class="row">
+            <p>Subscription</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-primary me-md-2" type="button" data-bs-toggle="modal"
+                    data-bs-target="#subscription">+Add</button>
+                </button>
+            </div>
+        </div>
+        <br />
+
+        <table class="table table-bordered" style="text-align: center;" id= "myTable1">
+            <thead style="background-color: #a8aaad;">
+                <th colspan="4" style="text-align: left;">Subscription</th>
+                <th><input type="text" /></th>
+                <th><button class="btn btn-primary me-md-2">Search</button></th>
+            </thead>
+            <thead>
+                <th>Sr.no</th>
+               
+                <th>Customer Name</th>
+                <th>Subscription Pack</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Action</th>
+            </thead>
+        </table>
+
+        <!--Add Subscription Modal -->
+        <div class="modal fade" id="subscription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add Subscription</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row g-2">
+                            <div class="col">
+                                <label for="inputEmail3"
+                                    class="col-form-label col-form-label-sm">Customer</label>
+                                <select class="form-select" aria-label="Default select example" id="customername">
+                                    <option selected>Select Customer</option>
+                                    <option value="Mansi">Mansi</option>
+                                    <option value="Ayush">Ayush</option>
+                                    <option value="Ganesh">Ganesh</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label for="inputEmail3"
+                                    class="col-form-label col-form-label-sm">Package</label>
+                                <select class="form-select" aria-label="Default select example" id="addpackage">
+                                    <option selected>Select Package</option>
+                                    <option value="Platinum">Platinum</option>
+                                    <option value="Gold">Gold</option>
+                                    <option value="Sliver">Sliver</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="row g-2">
+                            <div class="col">
+                                <label for="inputEmail3" class=" col-form-label col-form-label-sm">start
+                                    Date</label>
+                                <input type="date" class="form-control" aria-label="Last name" id="addstart" />
+                            </div>
+                            <div class="col">
+                                <label for="inputEmail3" class="col-form-label col-form-label-sm">End
+                                    Date</label>
+                                <input type="date" class="form-control" aria-label="Last name" id="addend"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                            cancel
+                        </button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="addSubscription()">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Edit Subscription Modal -->
+        <div class="modal fade" id="editsubscription" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Subscription</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row g-2">
+                            <div class="col">
+                                <label for="inputEmail3" class="col-form-label col-form-label-sm">Customer
+                                    Name</label>
+                                <input type="text" class="form-control" aria-label="First name" id="editcustomer"/>
+                            </div>
+                            <div class="col">
+                                <label for="inputEmail3"
+                                    class="col-form-label col-form-label-sm">Package</label>
+                                <select class="form-select" aria-label="Default select example" id="editpackage">
+                                    <option selected>Select Package</option>
+                                    <option value="Platinum">Platinum</option>
+                                    <option value="Gold">Gold</option>
+                                    <option value="Sliver">Sliver</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="row g-2">
+                            <div class="col">
+                                <label for="inputEmail3" class="col-form-label col-form-label-sm">start
+                                    Date</label>
+                                <input type="date" class="form-control" aria-label="Last name" id="editstartdate"/>
+                            </div>
+                            <div class="col">
+                                <label for="inputEmail3" class="col-form-label col-form-label-sm">End
+                                    Date</label>
+                                <input type="date" class="form-control" aria-label="Last name" id="editenddate" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                            cancel
+                        </button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+
+        <!-- Package -->
+
+        <div class="row">
+            <p>Package</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-primary me-md-2" type="button" data-bs-toggle="modal"
+                    data-bs-target="#addpackagemodal">+Add</button>
+                </button>
+            </div>
+        </div>
+        <br />
+
+        <table class="table table-bordered" style="text-align: center;" id= "myTable2">
+            <thead style="background-color: #a8aaad;">
+                <th colspan="3" style="text-align: left;">Package</th>
+                <th><input type="text" /></th>
+                <th><button class="btn btn-primary me-md-2">Search</button></th>
+            </thead>
+            <thead>
+                <th>Sr.no</th>
+                <th>Date</th>
+                <th>Package Name</th>
+                <th>Channel</th>
+                <th>Action</th>
+            </thead>
+            
+            
+        </table>
+
+        <!--Add Package Modal -->
+        <div class="modal fade" id="addpackagemodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add Package</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row g-2">
+                            <div class="col">
+                                <label for="inputEmail3" class=" col-form-label col-form-label-sm">Package
+                                    Name</label>
+                                <select class="form-select" aria-label="Default select example" id="addpackagename">
+                                    <option selected>Select Package</option>
+                                    <option value="Platinum">Platinum</option>
+                                    <option value="Gold">Gold</option>
+                                    <option value="Sliver">Sliver</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label for="inputEmail3" class="col-form-label col-form-label-sm">Channel
+                                    List</label>
+                                <select class="form-select" aria-label="Default select example" id="addchannellist">
+                                    <option selected>Select Channel</option>
+                                    <option value="Sony TV">Sony TV</option>
+                                    <option value="Zee TV">Zee TV</option>
+                                    <option value="Zee Marathi">Zee Marathi</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="row g-2">
+                            <div class="col">
+                                <label for="inputEmail3" class=" col-form-label col-form-label-sm">Package
+                                    Price</label>
+                                <input type="text" class="form-control" aria-label="Last name" id="addpackageprice"/>
+                            </div>
+                            <div class="col">
+                                <label for="inputEmail3" class=" col-form-label col-form-label-sm">Package
+                                    Validity (Days)</label>
+                                <input type="text" class="form-control" aria-label="Last name" id="addpackagevalidity"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                            cancel
+                        </button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"  onclick="addPackage()">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--edit Package Modal -->
+        <div class="modal fade" id="editpackagemodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Subscription</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row g-2">
+                            <div class="col">
+                                <label for="inputEmail3" class=" col-form-label col-form-label-sm">Package
+                                    Name</label>
+                                <input type="text" class="form-control" aria-label="First name" id="editpackagename" />
+                            </div>
+                            <div class="col">
+                                <label for="inputEmail3" class="col-form-label col-form-label-sm">Package
+                                    List</label>
+                                <select class="form-select" aria-label="Default select example" id="editpackagelist">
+                                    <option selected>Select Package</option>
+                                    <option value="Platinum">Platinum</option>
+                                    <option value="Gold">Gold</option>
+                                    <option value="Sliver">Sliver</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="row g-2">
+                            <div class="col">
+                                <label for="inputEmail3" class=" col-form-label col-form-label-sm">Package
+                                    Price</label>
+                                <input type="text" class="form-control" aria-label="Last name" id="editpackageprice"/>
+                            </div>
+                            <div class="col">
+                                <label for="inputEmail3" class=" col-form-label col-form-label-sm">Package
+                                    Validity (Days)</label>
+                                <input type="text" class="form-control" aria-label="Last name" id="editpackagevalidity"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                            cancel
+                        </button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- subscription Report -->
+
+        <div class="row">
+            <div class="row g-2">
+                <div class="col-sm">
+                    <label for="inputEmail3" class=" col-form-label col-form-label-sm ">Subscription Report</label>
+                </div>
+                <div class="col-sm">
+
+                    <input type="date" class="form-control" aria-label="Last name" />
+                </div>
+                <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-end"> -->
+
+                <div class="col-sm">
+                    <button class="btn btn-primary me-md-2" type="button" data-bs-toggle="modal"
+                        data-bs-target="#package">show</button>
+                    </button>
+                </div>
+            </div>
+        </div>
+      <br />
+
+     <table class="table table-bordered" style="text-align: center;">
+
+        <thead>
+            <th>Sr.no</th>
+            <th>Date</th>
+            <th>Total Subscription</th>
+            <th>Collection</th>
+
+        </thead>
+        <tr>
+            <td>1</td>
+            <td>dd/mm/yyyy</td>
+            <td>10</td>
+            <td>5000.00RS</td>
+
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>dd/mm/yyyy</td>
+            <td>11</td>
+            <td>6000.00RS</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>dd/mm/yyyy</td>
+            <td>14</td>
+            <td>7000.00RS</td>
+
+        </tr>
+    </table>
+    <br />
+
+    <h4> Reports (Alternate 455Z)</h4>
+    <div class="row">
+        <div class="row g-4">
+            <div class="col-sm">
+                <label for="inputEmail3" class=" col-form-label col-form-label-sm ">Subscription Report</label>
+            </div>
+            <div class="col-sm">
+                <input type="date" class="form-control" aria-label="Last name" />
+            </div>
+            <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-end"> -->
+
+            <div class="col-sm">
+                <button class="btn btn-primary me-md-2" type="button" data-bs-toggle="modal"
+                    data-bs-target="#package">show</button>
+                </button>
+            </div>
+            <div class="col-sm">
+                Note: Genrate Daily, Monthly, Quarter
+            </div>
+        </div>
+    </div>
+    
+    <br />
+
+    <table class="table table-bordered " style="text-align: center;">
+
+        <thead>
+            <th>Sr.no</th>
+            <th>Date</th>
+            <th>Total Subscription</th>
+            <th>Collection</th>
+
+        </thead>
+        <tr>
+            <td>1</td>
+            <td>dd/mm/yyyy</td>
+            <td>10</td>
+            <td>5000.00RS</td>
+
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>dd/mm/yyyy</td>
+            <td>11</td>
+            <td>6000.00RS</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>dd/mm/yyyy</td>
+            <td>14</td>
+            <td>7000.00RS</td>
+
+        </tr>
+    </table>
+
+    </div>
+
+
+
+</body>
+
+</html>

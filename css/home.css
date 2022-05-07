@@ -1,0 +1,30 @@
+/* table{
+     border: 1 ;
+    align:center;
+    border-collapse: collapse; 
+     margin-top: 100px; 
+}
+ @media (min-width: 576px)
+.col-sm-2 {
+    flex: 0 0 auto;
+    width: 42.666667%;
+}  */
+
+ /* @media (min-width: 576px)
+.abc {
+    flex: 0 0 auto;
+    width: 29.666667%;
+}  */
+
+p {
+    margin-top: 0;
+    margin-bottom: -3rem;
+}
+
+ .xyz{
+    counter-reset: serial-number;
+}
+.xyz tr:first-child:before {
+    counter-increment: serial-number;  Increment the serial number counter
+    content: counter(serial-number);  Display the counter
+  } 
